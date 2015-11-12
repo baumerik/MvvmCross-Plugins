@@ -132,7 +132,7 @@ namespace MvvmCross.Plugins.PictureChooser.WindowsStore
                 BitmapPixelFormat.Rgba8,
                 BitmapAlphaMode.Straight,
                 transform,
-                ExifOrientationMode.RespectExifOrientation,
+                ExifOrientationMode.IgnoreExifOrientation,
                 ColorManagementMode.DoNotColorManage);
 
             var destinationStream = new InMemoryRandomAccessStream();
