@@ -180,6 +180,14 @@ namespace MvvmCross.Plugins.PictureChooser.WindowsPhoneStore
                 ExifOrientationMode.RespectExifOrientation,
                 ColorManagementMode.DoNotColorManage);
 
+            //switch dimension on rotations
+            if (decoder.PixelWidth != decoder.OrientedPixelWidth)
+            {
+                var temp = targetHeight;
+                targetHeight = targetWidth;
+                targetWidth = temp;
+            }
+
             var destinationStream = new InMemoryRandomAccessStream();
             var bitmapPropertiesSet = new BitmapPropertySet();
             bitmapPropertiesSet.Add("ImageQuality", new BitmapTypedValue(((double)percentQuality) / 100.0, PropertyType.Single));
